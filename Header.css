@@ -1,0 +1,438 @@
+/* Importing Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* Root variables */
+:root {
+   /* --background: url("https://cdn.wallpapersafari.com/58/31/xWcUIz.jpg");  */
+   --background: url("https://tailwindcss.com/_next/static/media/hero@75.b2469a49.jpg"); 
+  --primary: #F8FAFC;
+  --secondary: #0F172A;
+  --txt: #000;
+  --heading: #2dd9fe;
+  --btn-color: #fff;
+  --btn-background: #5f99be;
+  --search-background: #000;
+  --c: #2dd9fe;
+  --hover_bg_change: rgba(255, 255, 255, 0.1); /* Adjusted hover background color */
+}
+
+/* Dark theme styles */
+body.dark {
+  --background: url("https://tailwindcss.com/_next/static/media/hero-dark@90.dba36cdf.jpg");
+  --primary: rgb(30, 41, 59);
+  --secondary: #D5DDF0;
+  --txt: #fff;
+  --heading: #4666FF;
+  --btn-color: #000;
+  --btn-background: #5f99be;
+  --search-background: #18181b;
+}
+
+/* Body and Theme Toggle */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  background-color: var(--primary);
+  background-image: var(--background);
+  min-height: 100vh;
+  margin: 0;
+  color: var(--txt);
+}
+
+h1, h2, h3, h4 {
+  color: var(--heading);
+}
+
+/* Navbar styles */
+nav {
+  background-color: var(--secondary);
+  color: var(--txt);
+  padding: 0 1.5rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Logo styling */
+.logo img {
+  width: 6rem;
+  height: auto;
+  border-radius: 50%;
+}
+
+/* Nav UL */
+.nav-ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dropdown Menu */
+.dropdown-li {
+  position: relative;
+}
+
+.dropdown-title {
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--primary);
+  color: var(--txt);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-content li {
+  padding: 12px 16px;
+  text-align: left;
+  list-style: none;
+}
+
+.dropdown-content li:hover {
+  background-color: var(--hover_bg_change); /* Hover effect */
+}
+
+.dropdown-li:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-link {
+  text-decoration: none;
+  color: var(--txt);
+}
+
+/* Theme Toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: relative;
+  padding: 5px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+  z-index: 1;
+}
+
+/* Icons inside the toggle */
+.checkbox-label .fa-moon, .checkbox-label .fa-sun {
+  position: absolute;
+  font-size: 0.75rem;
+}
+
+.checkbox-label .fa-moon {
+  left: 6px;
+  color: #f1c40f;
+}
+
+.checkbox-label .fa-sun {
+  right: 6px;
+  color: #f39c12;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+/* Button Styles */
+.button-link {
+  background-color: var(--btn-background);
+  color: var(--btn-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.button-link:hover {
+  background-color: grey;
+}
+
+/* Login Button */
+.login-button {
+  background-color: var(--btn-background);
+  color: var(--btn-color);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.login-button:hover {
+  background-color: grey;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .nav-ul {
+    gap: 1rem;
+    justify-content: flex-end;
+  }
+
+  .logo img {
+    width: 4rem;
+    height: auto;
+  }
+}
+
+/* Styles for Tablets (between 600px and 1024px) */
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .nav-ul {
+    gap: 1.5rem;
+    justify-content: flex-end;
+  }
+
+  .logo img {
+    width: 5rem;
+    height: auto;
+  }
+
+  nav {
+    height: 3.5rem;
+  }
+
+  .login-button,
+  .button-link {
+    padding: 0.4rem 0.8rem;
+    border-radius: 15px;
+  }
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+  .nav-ul {
+    flex-direction: column;
+    gap: 1rem; /* Adjusted gap between items in the sidebar */
+    background-color: var(--secondary);
+    position: fixed;
+    top: 4rem;
+    right: -100%; /* Hidden off-screen initially */
+    width: 250px; /* Adjust width as needed */
+    height: calc(100% - 4rem); /* Full height except nav bar */
+    display: flex;
+    padding: 1rem;
+    transition: right 0.3s ease;
+    z-index: 1001;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: relative; /* Ensure the dropdown stays within the sidebar */
+    background-color: var(--primary);
+    color: var(--txt);
+    width: 100%; /* Full width to fit inside the sidebar */
+    box-shadow: none; /* Remove box-shadow to avoid cutoff */
+    z-index: 1;
+  }
+
+  .dropdown-li:hover .dropdown-content {
+    display: block;
+    max-height: 200px; /* Limit dropdown height */
+    overflow-y: auto; /* Enable scrolling in the dropdown if content is long */
+  }
+
+  .nav-ul.active {
+    right: 0; /* Slide in the sidebar */
+  }
+
+  .logo img {
+    width: 3rem;
+  }
+
+  .login-button,
+  .button-link {
+    padding: 0.4rem 0.7rem;
+    border-radius: 12px;
+  }
+
+  .hamburger {
+    display: block; /* Show hamburger icon on mobile */
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: white;
+  }
+
+  /* Overlay for background when sidebar is open */
+  .overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+  }
+
+  .overlay.active {
+    display: block;
+  }
+}
+
+/* Hide hamburger menu icon on larger screens */
+@media screen and (min-width: 601px) {
+  .hamburger {
+    display: none; /* Hide on larger screens */
+  }
+}
+/* Styles for the weather form */
+/* Weather form styles */
+/* Weather form styles */
+.weather-form {
+  display: flex;
+  align-items: center;
+}
+
+.city-input {
+  padding: 5px 10px;
+  border-radius: 20px; /* Rounded border */
+  border: 1px solid var(--border-color);
+  margin-right: 10px;
+  color: white;
+  background-color: var(--input-bg);
+  outline: none; /* Remove default focus outline */
+}
+
+.city-input::placeholder {
+  color: var(--text-color); /* Placeholder text color */
+}
+
+.city-input:focus {
+  border-color: dodgerblue; /* Change border color when focused */
+  box-shadow: 0 0 5px dodgerblue; /* Add slight shadow on focus */
+}
+
+.weather-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: dodgerblue;
+}
+
+.weather-info {
+  display: flex;
+  align-items: center;
+  margin-left: 15px;
+  color: dodgerblue;
+}
+
+.weather-info span {
+  margin-right: 10px;
+}
+
+.weather-info img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Light theme */
+body.light {
+  --text-color: #333;
+  --input-bg: #fff;
+  --border-color: #ccc;
+  --bg-color: #f9f9f9;
+}
+
+body.light .city-input {
+  color: #333; /* Ensure text is visible in light mode */
+}
+
+body.light .city-input::placeholder {
+  color: #666; /* Lighter placeholder text color in light mode */
+}
+
+/* Dark theme */
+body.dark {
+  --text-color: #f9f9f9;
+  --input-bg: #D5DDF0;
+  --border-color: #D5DDF0;
+  --bg-color: #222222;
+}
+
+body.dark .city-input {
+  color: #f9f9f9; /* Ensure text is visible in dark mode */
+}
+
+body.dark .city-input::placeholder {
+  color: #000000; /* Lighter placeholder text color in dark mode */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .nav-ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .city-input {
+    width: 150px;
+    margin-bottom: 10px;
+  }
+
+  .weather-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .weather-info span {
+    margin-right: 0;
+    margin-bottom: 5px;
+  }
+
+  .weather-info img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  .nav-ul {
+    padding: 0 10px;
+  }
+
+  .city-input {
+    width: 120px;
+  }
+
+  .weather-info {
+    font-size: 0.9rem;
+  }
+}
